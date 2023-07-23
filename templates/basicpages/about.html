@@ -1,0 +1,30 @@
+<!-- Extend Base Page -->
+{% extends "base/base.html" %}
+
+<!-- Load Static -->
+{% load static %}
+
+<!-- Enter Title -->
+{% block title %}
+<title>Coffee Wala | About</title>
+{% endblock title %}
+
+<!-- Content -->
+{% block content %}
+<!-- About Page -->
+<div id="about-page">
+    <section class="about-wrapper container">
+        <h2 class="head-design mb-4 text-center">About Us <span>About Us</span></h2>
+        <p class="p-3">
+           CoffeeTime is an online food ordering and delivery platform launched by Uber in 2014.
+        </p>
+        <div class="d-flex flex-wrap justify-content-between">
+            <img src=" {% static 'assets/img_1.jpg' %} " alt="">
+            <img src=" {% static 'assets/img_2.jpg' %} " alt="">
+            <img src=" {% static 'assets/img_3.jpg' %} " alt="">
+            <img src=" {% static 'assets/img_4.jpg' %} " alt="">
+            <img src=" {% static 'assets/img_5.jpg' %} " alt="">
+        </div>
+    </section>
+</div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+<!-- Extend Base Page -->
+{% extends "base/base.html" %}
+
+<!-- Load Static -->
+{% load static %}
+
+<!-- Enter Title -->
+{% block title %}
+<title>CoffeeTime | Home</title>
+{% endblock title %}
+
+<!-- Content -->
+{% block content %}
+<!-- Home Page -->
+<div id="home-page">
+    <section class="home-wrapper container">
+        <p>🍕 Easy way to order your food</p>
+        <h1 class="mb-5">Order Tasty & <br> Fresh Food <br> <span>anytime!</span></h1>
+        <div class="btn-section">
+            <a href="#" class="order-btn">Order Now</a>
+            <a href=" {% url 'menu' %} " class="order-btn">See Menu</a>
+        </div>
+    </section>
+</div>
+
+<div id="banner">
+    <div class="banner-wrapper container">
+        {% for foodItem in foodItems %}
+        <div>{{foodItem.name}}</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

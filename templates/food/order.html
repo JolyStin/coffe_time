@@ -1,0 +1,52 @@
+<!-- Extend Base Page -->
+{% extends "base/base.html" %}
+
+<!-- Load Static -->
+{% load static %}
+
+<!-- Enter Title -->
+{% block title %}
+<title>CoffeeTime | Check Out</title>
+{% endblock title %}
+
+<!-- Content -->
+{% block content %}
+<!-- Menu page -->
+<div id="food-details-page">
+    <section class="details-wrapper container">
+        <h2 class="head-design mb-4">Your Orders <span>Your Orders</span></h2>
+        {% for detail in details %}
+        <div class="order-card">
+            <div class="order-header">
+                <h4>
+                    Order Number : {{detail.id}}
+                </h4>
+                <p>Status :
+
+                    {% if detail.is_ready and detail.is_delivered %}
+                    <span class="text-success">Delivered</span>
+                    {% elif detail.is_ready %}
+                    <span class="text-warning">Ready</span>
+                    {% else %}
+                    <span class="text-danger">Processing</span>
+                    {% endif %}
+
+                </p>
+            </div>
+
+            <div class="order-body">
+                <p> Username : {{detail.user}}</p>
+                <p> Orders Details : {{detail.order_details}}</p>
+                <p> Total Price : {{detail.total_price}}</p>
+                <p> Order Placed at : {{detail.created_at}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock content %}
+
+<!-- Scripts -->
+{% block script %}
+<script src=" {% static 'script/authentication.js' %} "></script>
+{% endblock script %}
